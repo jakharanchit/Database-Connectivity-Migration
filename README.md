@@ -1,6 +1,5 @@
 # Secure Database Connectivity Migration
 
-![Status](https://img.shields.io/badge/Status-Complete-green)
 ![Driver](https://img.shields.io/badge/Driver-MSOLEDBSQL19-blue)
 ![Security](https://img.shields.io/badge/Auth-Kerberos%2FSSPI-secure)
 
@@ -39,4 +38,3 @@ This repository contains the complete technical deliverables for migrating an In
 *   [**Engineering Walkthrough:**](docs/reports/Migration_Walkthrough.md) Deep technical details on the "Why" and "How".
 
 ---
-*Maintained by Engineering Team*
