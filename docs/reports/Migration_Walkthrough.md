@@ -1,8 +1,4 @@
-# Engineering Walkthrough: Migrating to MSOLEDBSQL and Windows Authentication
-
-**Role:** Database Connectivity Migration Specialist
-**Date:** January 9, 2026
-**Target System:** Industrial Automation / LabVIEW / .NET Clients
+# Walkthrough: Migrating to MSOLEDBSQL and Windows Authentication
 
 ---
 
