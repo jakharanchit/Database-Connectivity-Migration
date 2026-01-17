@@ -1,10 +1,5 @@
 # Client Migration Guide: Database Connectivity & Security Modernization
 
-**Project:** Secure Database Connectivity Migration  
-**Target System:** Industrial Automation / LabVIEW Clients  
-**Date:** January 13, 2026  
-**Version:** 1.0
-
 ---
 
 ## 1. Executive Summary
