@@ -2,7 +2,6 @@
 
 **Target Component:** Database Connection Module (`DB Tools Open Connection.vi`)
 **Context:** Migration from File-Based UDL to Dynamic In-Memory Connection
-**Date:** January 13, 2026
 
 ---
 
