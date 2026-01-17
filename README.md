@@ -14,7 +14,6 @@ This repository contains the complete technical deliverables for migrating an In
 | `docs/` | **Start Here.** Contains the [Client Migration Guide](docs/Client_Migration_Guide.md) and technical reports. |
 | `src/scripts/` | Validation scripts (PowerShell) to verify driver installation on client machines. |
 | `src/sql/` | SQL scripts to provision Active Directory users and permissions on the server. |
-| `labview/` | Placeholder for LabVIEW source code and `.vi` modules. |
 
 ## 🚀 Quick Start (Deploying to a Client)
 
