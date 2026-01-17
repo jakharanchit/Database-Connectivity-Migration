@@ -1,10 +1,6 @@
-# Architectural Migration Report: Transitioning Industrial Automation Systems from Legacy UDL to Secure Windows Authentication
+# Architectural Migration Report: Transitioning from Legacy UDL to Secure Windows Authentication
 
 ## Executive Summary
-
-The convergence of Information Technology (IT) and Operational Technology (OT) has fundamentally altered the threat landscape for industrial control systems. As industrial automation moves toward Industry 4.0, the legacy practices that once prioritized ease of connectivity over security—specifically the use of Universal Data Link (`.udl`) files and SQL Server Authentication—have become critical liabilities. This report provides a comprehensive architectural blueprint for migrating LabVIEW-based industrial applications from these insecure legacy patterns to a robust, enterprise-grade architecture utilizing Windows Authentication (Integrated Security).
-
-The analysis indicates that legacy implementations relying on `.udl` files inherently expose credentials in plain text and rely on static, decentralized password management that violates modern cybersecurity frameworks such as IEC 62443 and NIST SP 800-82.1 In contrast, the proposed architecture leverages the **Microsoft OLE DB Driver for SQL Server (`MSOLEDBSQL`)** and the **Kerberos** network authentication protocol to establish trust relationships managed by Active Directory (AD). This shift eliminates the storage of credentials on the client, enforces centralized password policies, and ensures that authentication data is cryptographically protected in transit.3
 
 This document serves as an exhaustive technical guide for Systems Architects and Database Administrators. It covers the comparative security models, a deep dive into the underlying protocols (SSPI, TDS, Kerberos), detailed server-side configuration of Service Principal Names (SPNs) and Access Control Lists (ACLs), client-side implementation within the LabVIEW environment, and rigorous troubleshooting methodologies for complex connectivity issues.
 
@@ -34,7 +30,7 @@ Ini, TOML
 Provider=SQLOLEDB.1;Persist Security Info=True;User ID=sa;Password=IndustrialPassword123!;Initial Catalog=ProductionDB;Data Source=SERVER01
 ```
 
-This text-based exposure 2 means that any user with read access to the file system of the HMI or Engineering Workstation can compromise the database credentials. In industrial environments, where physical security of terminals is sometimes shared or lower than in a data center, this risk is magnified. Furthermore, the "Persist Security Info=True" flag keeps sensitive authentication information in the memory of the OLE DB provider, making it susceptible to memory dump attacks.6
+This text-based exposure 2 means that any user with read access to the file system of the HMI or Engineering Workstation can compromise the database credentials. In industrial environments, where physical security of terminals is sometimes shared or lower than in a data center, this risk is magnified. Furthermore, the "Persist Security Info=True" flag keeps sensitive authentication information in the memory of the OLE DB provider, making it susceptible to memory dump attacks..
 
 ### 1.2 The Security Deficit of SQL Server Authentication
 
@@ -370,7 +366,7 @@ Use Wireshark to capture traffic on Port 88 (Kerberos) and Port 1433 (SQL).
 
 ## 6. Conclusion
 
-The migration from `.udl` files and SQL Server Authentication to **Windows Authentication** using the **MSOLEDBSQL19** driver represents a critical maturation of the industrial automation security posture. By decoupling credential management from the application layer and anchoring it in the Active Directory infrastructure, the system gains resilience against credential theft, simplifies operator onboarding/offboarding, and aligns with rigorous industrial cybersecurity standards.
+By decoupling credential management from the application layer and anchoring it in the Active Directory infrastructure, the system gains resilience against credential theft, simplifies operator onboarding/offboarding, and aligns with rigorous industrial cybersecurity standards.
 
 While the architectural complexity increases—requiring precise coordination between AD administrators (SPNs, Groups) and OT developers (Drivers, Connection Strings)—the result is a robust, encrypted, and auditable data access layer. The System Architect must vigilantly manage the "bitness" dependencies of the LabVIEW runtime and enforce strict SPN hygiene to ensure the seamless operation of the Kerberos protocol. This transition transforms the database connection from a static security vulnerability into a managed, dynamic, and secure enterprise asset.
 
